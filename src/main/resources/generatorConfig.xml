@@ -6,13 +6,18 @@
         <commentGenerator>
             <!-- 是否去除自动生成的注释 -->
             <property name="suppressAllComments" value="true"/>
+
         </commentGenerator>
         <!-- Mysql数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <!--driverClass="com.mysql.jdbc.Driver"当使用旧版本数据库时for mysql8.0以下-->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/exam?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;rewriteBatchedStatements=true"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/exam?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;rewriteBatchedStatements=true"
                         userId="root"
                         password="root">
+
+            <!--针对mysql8.0+返回所有权限表的问题，设置只返回当前数据库表-->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+
         </jdbcConnection>
         <!-- Oracle数据库
             <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
@@ -50,12 +55,12 @@
 
         <!-- 指定数据表 -->
         <table schema="" tableName="paper"></table>
-        <table schema="" tableName="roleright"></table>
-        <table schema="" tableName="studentpaper"></table>
-        <table schema="" tableName="subject"></table>
-        <table schema="" tableName="sysfunction"></table>
-        <table schema="" tableName="sysrole"></table>
-        <table schema="" tableName="sysuser"></table>
+        <!--<table schema="" tableName="roleright"></table>-->
+        <!--<table schema="" tableName="studentpaper"></table>-->
+        <!--<table schema="" tableName="subject"></table>-->
+        <!--<table schema="" tableName="sysfunction"></table>-->
+        <!--<table schema="" tableName="sysrole"></table>-->
+        <!--<table schema="" tableName="sysuser"></table>-->
 
         <!-- 有些表的字段需要指定java类型
         <table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >
